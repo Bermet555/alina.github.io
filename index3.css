@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #ffffff ,#fdf9f3, #c7ae98);
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #775542;
+    
+    padding: 10px 20px;
+}
+
+nav .logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(134, 198, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:active {
+    color: #775542;
+}
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column; /* Заголовок сверху, затем блок карточек */
+    align-items: center;
+    padding: 25px;
+  }
+  
+  .container h2 {
+    margin: 25px 0;
+    font-size: 38px;
+    color: #000;
+  }
+  
+  /* Новый блок для карточек */
+  .cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;        /* Разрешаем перенос на следующую строку */
+    justify-content: space-between; /* Выравниваем карточки по центру */
+    gap: 18px;              /* Расстояние между карточками */
+    width: 100%;            /* По желанию, чтобы wrapper занимал всю ширину контейнера */
+    margin: 19px;
+  }
+  
+  /* Стили карточек */
+  .card {
+    position: relative;
+    width: 280px;   /* При этой ширине можно разместить примерно 4 карточки, если экран достаточно широкий */
+    height: 315px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    box-shadow: 3px 2px 8px rgba(0, 0, 0, 01);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform:scale(1.1);
+    transition: transform o.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+  
+  /* Остальные стили карточек остаются без изменений */
+  .container .card .imgBx,
+  .container .card .contentBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .container .card .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+  }
+  .container .card .contentBx::before { 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+.card:hover .imgBx{
+    filter: blur(15px);
+}
+
+.card:hover .overlay{
+    opacity: 1;
+}
+  .container .card:hover .contentBx::before { 
+    transform: scaleX(1); 
+    transition: transform 0.5s ease-in-out; 
+    transform-origin: left; 
+    transition-delay: 0s;
+  }
+  .container .card .contentBx {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  .container .card .contentBx .content { 
+    position: relative;
+    padding: 30px; 
+    z-index: 1;
+    transition: 0.5s;
+    transform: translateX(-300px); 
+    transition-delay: 0.3s;
+  }
+  .container .card:hover .contentBx .content { 
+    transform: translateX(0px);
+    transition-delay: 0.3s;
+  }
+  
+  .container .card .contentBx .content h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.8); /* Фон блока */
+    padding: 8px 13px; /* Отступы вокруг текста */
+    border-radius: 8px; /* Закругление углов */
+    display: inline-block; /* Чтобы фон обтекал только текст */
+}
+
+.container .card .contentBx .content p {
+  font-size: 1em;
+  line-height: 1.1em;
+  font-weight: 300;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: rgb(130, 130, 130); /* Фон блока */
+    padding: 8px 13px; /* Отступы вокруг текста */
+    border-radius: 8px; /* Закругление углов */
+    display: inline-block; /* Чтобы фон обтекал только текст */
+}
